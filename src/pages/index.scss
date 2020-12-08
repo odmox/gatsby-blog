@@ -1,3 +1,9 @@
+@import '../sass/index.scss';
+
 h1{
-    color: #f00;
+    color: $font-grey;
+}
+
+h2{
+    color: $font-grey;
 }
