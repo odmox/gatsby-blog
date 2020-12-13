@@ -1,9 +1,30 @@
 import React from 'react';
-import './index.scss';
 import { Button } from 'semantic-ui-react';
+import { useStaticQuery, graphql } from 'gatsby';
+
 import BlogLayout from '../layouts/BlogLayout';
+import './index.scss';
 
 export default function Home() {
+
+  const result = useStaticQuery(graphql`
+    query {
+      allStrapiPost{
+        nodes {
+          id
+          title
+          url
+          content
+          createdAt
+          miniature{
+            publicURL
+          }
+        }
+      }
+    }`
+  );
+
+  console.log(result);
   return (
     <BlogLayout>
       <h1> Estamos en la home del blog </h1>
