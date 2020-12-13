@@ -1,13 +1,23 @@
+@import '../../sass/index.scss'; 
 .blog-layout {
     > .ui.grid {
         margin: 0 !important;
-        min-width: 100vh;
+        min-height: 100vh;
 
         > .column {
             padding: 40px;
 
             &:first-of-type{
-                background-color: #fff;
+                background-color: $backgroud-grey-ligth;
+            }
+            &:last-of-type {
+                max-height: 100vh;
+                overflow-y: scroll;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                
             }
         }
     }
