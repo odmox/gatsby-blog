@@ -36,4 +36,15 @@ exports.createPages = async ({ actions, graphql })  => {
       pathPrefix: '/', // Creates pages like `/blog`, `/blog/2`, etc
       component: path.resolve(`src/templates/blog.js`), // Just like `createPage()`
     })
+
+    posts.data.allStrapiPost.nodes.forEach((post) => {
+        createPage({
+            path: `/${post.url}`,
+            component : path.resolve(`src/templates/post/post.js`),
+            context : {
+                data : post
+            }
+        })
+    });
+
   }
