@@ -1,10 +1,37 @@
-import React from 'react'
+import React from 'react';
+import { graphql } from 'gatsby';
+
+import BlogLayout from '../layouts/BlogLayout';
+import PostList from '../components/PostList';
+import Pagination from '../components/Pagination';
 
 export default function blog(props) {
-    console.log(props);
+    const { data, pageContext } = props;
+    const posts = data.allStrapiPost.nodes;
+   
     return (
-        <div>
-            <h1> Estamos en el Blog </h1>
-        </div>
+        <BlogLayout>
+            <PostList posts = {posts} />
+            <Pagination pageContext = {pageContext} />
+        </BlogLayout>
     )
-}
+};
+
+export const query =  graphql`query($skip: Int!, $limit: Int! ) {
+    allStrapiPost ( 
+        skip: $skip
+        limit: $limit
+        sort: { fields: createdAt, order: DESC } 
+    ) {
+        nodes {
+            id
+            title
+            url
+            content
+            createdAt
+            miniature{
+                publicURL
+            }
+        }
+    }
+}`;
