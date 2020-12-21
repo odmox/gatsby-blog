@@ -23,6 +23,8 @@ exports.createPages = async ({ actions, graphql })  => {
                     miniature{
                         publicURL
                     }
+                    seo_title
+                    seo_description
                 }
             }
         }
