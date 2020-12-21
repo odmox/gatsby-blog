@@ -35,9 +35,6 @@ export const query =  graphql`query($skip: Int!, $limit: Int! ) {
             url
             content
             createdAt
-            miniature{
-                publicURL
-            }
         }
     }
 }`;
