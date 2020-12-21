@@ -9,8 +9,6 @@ export default function Pagination( props ) {
     const { pageContext } = props;
     const { previousPagePath, nextPagePath } = pageContext;
 
-    console.log(pageContext);
-
     return (
         <div className = "pagination" >
             { previousPagePath && <Link to= {previousPagePath} > Atras </Link> }

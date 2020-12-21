@@ -9,7 +9,6 @@ import './PostList.scss';
 
 export default function PostList( props ) {
     const { posts } = props; 
-    console.log(posts);
 
     return (
         <Grid className = "post-list" >
